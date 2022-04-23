@@ -9,4 +9,4 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_PASSWORD: hD[\2@XS^(-a]2SX
+      POSTGRES_PASSWORD: password
