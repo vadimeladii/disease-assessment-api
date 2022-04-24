@@ -1,6 +1,6 @@
 create table profile
 (
-    id          uuid             not null
+    id          varchar          not null
         constraint profile_pk
             primary key,
     email       varchar          not null,
