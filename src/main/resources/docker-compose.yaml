@@ -10,3 +10,16 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_PASSWORD: password
+
+  disease_assessment_api:
+    image: vadimeladii7/disease-assessment-api:latest
+    ports:
+      - "8080:8080"
+    links:
+      - db
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
