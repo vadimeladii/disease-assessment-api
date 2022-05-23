@@ -29,6 +29,6 @@ public class UserController {
 
     @GetMapping("/{email}/disseases")
     public ResponseEntity<List<Object>> retrieveDiseases(@PathVariable("email") String email) {
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.status(HttpStatus.OK).body(userService.retrieveDiseases(email));
     }
 }
