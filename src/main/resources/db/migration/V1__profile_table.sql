@@ -3,10 +3,10 @@ create table profile
     id          varchar          not null
         constraint profile_pk
             primary key,
-    first_name varchar not null,
-    last_name varchar not null,
-    email       varchar          not null,
-    age int not null,
+    first_name varchar not null default '',
+    last_name varchar not null default '',
+    email       varchar          not null unique,
+    age int not null default 0,
     sex int not null default 0,
     resting_BP int not null default 0,
     cholesterol int not null default 0,

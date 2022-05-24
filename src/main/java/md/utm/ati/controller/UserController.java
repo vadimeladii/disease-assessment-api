@@ -1,6 +1,7 @@
 package md.utm.ati.controller;
 
 import lombok.RequiredArgsConstructor;
+import md.utm.ati.controller.view.EmailView;
 import md.utm.ati.controller.view.ProfileView;
 import md.utm.ati.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -22,8 +23,14 @@ public class UserController {
     }
 
     @PostMapping("/profile")
-    public ResponseEntity<Void> createProfile(@RequestBody ProfileView profileView) {
-        userService.createProfile(profileView);
+    public ResponseEntity<Void> createProfile(@RequestBody EmailView emailView) {
+        userService.createProfile(emailView);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PutMapping("/{email}/profile")
+    public ResponseEntity<Void> createProfile(@PathVariable("email") String email, @RequestBody ProfileView profileView) {
+        userService.updateProfile(email, profileView);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 

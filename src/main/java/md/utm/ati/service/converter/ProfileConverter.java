@@ -10,28 +10,27 @@ public class ProfileConverter extends Converter<Profile, ProfileView> {
 
     @Override
     protected ProfileView doForward(Profile profile) {
-        ProfileView view = new ProfileView();
-        view.setId(profile.getId());
-        view.setFirstName(profile.getFirstName());
-        view.setLastName(profile.getLastName());
-        view.setEmail(profile.getEmail());
-        view.setAge(profile.getAge());
-        view.setSex(profile.getSex());
-        view.setRestingBp(profile.getRestingBp());
-        view.setCholesterol(profile.getCholesterol());
-        view.setFastingBs(profile.getFastingBs());
-        view.setMaxHr(profile.getMaxHr());
-        view.setExerciseAngina(profile.getExerciseAngina());
-        view.setOldpeak(profile.getOldpeak());
-        view.setChestPainTypeAta(profile.getChestPainTypeAta());
-        view.setChestPainTypeNap(profile.getChestPainTypeNap());
-        view.setChestPainTypeTa(profile.getChestPainTypeTa());
-        view.setRestingEcgNormal(profile.getRestingEcgNormal());
-        view.setRestingEcgSt(profile.getRestingEcgSt());
-        view.setStSlopeFlat(profile.getStSlopeFlat());
-        view.setStSlopeUp(profile.getStSlopeUp());
-
-        return view;
+        return ProfileView.builder()
+                .id(profile.getId())
+                .firstName(profile.getFirstName())
+                .lastName(profile.getLastName())
+                .email(profile.getEmail())
+                .age(profile.getAge())
+                .sex(profile.getSex())
+                .restingBp(profile.getRestingBp())
+                .cholesterol(profile.getCholesterol())
+                .fastingBs(profile.getFastingBs())
+                .maxHr(profile.getMaxHr())
+                .exerciseAngina(profile.getExerciseAngina())
+                .oldpeak(profile.getOldpeak())
+                .chestPainTypeAta(profile.getChestPainTypeAta())
+                .chestPainTypeNap(profile.getChestPainTypeNap())
+                .chestPainTypeTa(profile.getChestPainTypeTa())
+                .restingEcgNormal(profile.getRestingEcgNormal())
+                .restingEcgSt(profile.getRestingEcgSt())
+                .stSlopeFlat(profile.getStSlopeFlat())
+                .stSlopeUp(profile.getStSlopeUp())
+                .build();
     }
 
     @Override

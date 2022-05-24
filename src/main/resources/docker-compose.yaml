@@ -17,10 +17,17 @@ services:
       - "8080:8080"
     links:
       - db
+      - predictor
     depends_on:
       - db
+      - predictor
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
       - PREDICTOR_CLIENT_URL=http://predictor:5000
+
+  predictor:
+    image: vadimeladii7/predictor-service:latest
+    ports:
+      - "5000:5000"
