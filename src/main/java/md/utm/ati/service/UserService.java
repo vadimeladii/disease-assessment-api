@@ -1,6 +1,7 @@
 package md.utm.ati.service;
 
 import md.utm.ati.client.PredictorClient;
+import md.utm.ati.client.view.DiabeteRequestView;
 import md.utm.ati.client.view.HeartFullRequestView;
 import md.utm.ati.client.view.HeartPartialRequestView;
 import md.utm.ati.controller.view.EmailView;
@@ -51,13 +52,14 @@ public record UserService(ProfileRepository profileRepository, ProfileConverter 
         return profileRepository.findByEmail(email)
                 .map(profile -> List.of(
                         predictorClient.heartfull(buildHearFullRequestView(profile)),
-                        predictorClient.heartpartial(buildHearPartialRequestView(profile))))
+                        predictorClient.heartpartial(buildHearPartialRequestView(profile)),
+                        predictorClient.diabetes(buildDiabeteRequestView(profile))))
                 .orElse(List.of());
     }
 
     private void update(ProfileView profileView, Profile profile) {
-        profile.setFirstName(profile.getFirstName());
-        profile.setLastName(profile.getLastName());
+        profile.setFirstName(profileView.getFirstName());
+        profile.setLastName(profileView.getLastName());
         profile.setAge(profileView.getAge());
         profile.setSex(profileView.getSex());
         profile.setRestingBp(profileView.getRestingBp());
@@ -73,6 +75,21 @@ public record UserService(ProfileRepository profileRepository, ProfileConverter 
         profile.setRestingEcgSt(profileView.getRestingEcgSt());
         profile.setStSlopeFlat(profileView.getStSlopeFlat());
         profile.setStSlopeUp(profileView.getStSlopeUp());
+        profile.setPolyuria(profileView.getPolyuria());
+        profile.setPolydipsia(profileView.getPolydipsia());
+        profile.setSuddenWeightLoss(profileView.getSuddenWeightLoss());
+        profile.setWeakness(profileView.getWeakness());
+        profile.setPolyphagia(profileView.getPolyphagia());
+        profile.setGenitalThrush(profileView.getGenitalThrush());
+        profile.setVisualBlurring(profileView.getVisualBlurring());
+        profile.setItching(profileView.getItching());
+        profile.setIrritability(profileView.getIrritability());
+        profile.setDelayedHealing(profileView.getDelayedHealing());
+        profile.setPartialParesis(profileView.getPartialParesis());
+        profile.setMuscleStiffness(profileView.getMuscleStiffness());
+        profile.setAlopecia(profileView.getAlopecia());
+        profile.setObesity(profileView.getObesity());
+
     }
 
     private HeartPartialRequestView buildHearPartialRequestView(Profile profile) {
@@ -107,5 +124,27 @@ public record UserService(ProfileRepository profileRepository, ProfileConverter 
         heartFullRequestView.setStSlopeUp(profile.getStSlopeUp());
 
         return heartFullRequestView;
+    }
+
+    private DiabeteRequestView buildDiabeteRequestView(Profile profile) {
+        DiabeteRequestView diabeteRequestView = new DiabeteRequestView();
+        diabeteRequestView.setAge(profile.getAge());
+        diabeteRequestView.setSex(profile.getSex());
+        diabeteRequestView.setPolyuria(profile.getPolyuria());
+        diabeteRequestView.setPolydipsia(profile.getPolydipsia());
+        diabeteRequestView.setSuddenWeightLoss(profile.getSuddenWeightLoss());
+        diabeteRequestView.setWeakness(profile.getWeakness());
+        diabeteRequestView.setPolyphagia(profile.getPolyphagia());
+        diabeteRequestView.setGenitalThrush(profile.getGenitalThrush());
+        diabeteRequestView.setVisualBlurring(profile.getVisualBlurring());
+        diabeteRequestView.setItching(profile.getItching());
+        diabeteRequestView.setIrritability(profile.getIrritability());
+        diabeteRequestView.setDelayedHealing(profile.getDelayedHealing());
+        diabeteRequestView.setPartialParesis(profile.getPartialParesis());
+        diabeteRequestView.setMuscleStiffness(profile.getMuscleStiffness());
+        diabeteRequestView.setAlopecia(profile.getAlopecia());
+        diabeteRequestView.setObesity(profile.getObesity());
+
+        return diabeteRequestView;
     }
 }

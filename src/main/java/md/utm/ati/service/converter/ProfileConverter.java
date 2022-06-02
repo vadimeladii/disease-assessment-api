@@ -30,6 +30,20 @@ public class ProfileConverter extends Converter<Profile, ProfileView> {
                 .restingEcgSt(profile.getRestingEcgSt())
                 .stSlopeFlat(profile.getStSlopeFlat())
                 .stSlopeUp(profile.getStSlopeUp())
+                .polyuria(profile.getPolyuria())
+                .polydipsia(profile.getPolydipsia())
+                .suddenWeightLoss(profile.getSuddenWeightLoss())
+                .weakness(profile.getWeakness())
+                .polyphagia(profile.getPolyphagia())
+                .genitalThrush(profile.getGenitalThrush())
+                .visualBlurring(profile.getVisualBlurring())
+                .itching(profile.getItching())
+                .irritability(profile.getIrritability())
+                .delayedHealing(profile.getDelayedHealing())
+                .partialParesis(profile.getPartialParesis())
+                .muscleStiffness(profile.getMuscleStiffness())
+                .alopecia(profile.getAlopecia())
+                .obesity(profile.getObesity())
                 .build();
     }
 
@@ -55,6 +69,20 @@ public class ProfileConverter extends Converter<Profile, ProfileView> {
         profile.setRestingEcgSt(view.getRestingEcgSt());
         profile.setStSlopeFlat(view.getStSlopeFlat());
         profile.setStSlopeUp(view.getStSlopeUp());
+        profile.setPolyuria(view.getPolyuria());
+        profile.setPolydipsia(view.getPolydipsia());
+        profile.setSuddenWeightLoss(view.getSuddenWeightLoss());
+        profile.setWeakness(view.getWeakness());
+        profile.setPolyphagia(view.getPolyphagia());
+        profile.setGenitalThrush(view.getGenitalThrush());
+        profile.setVisualBlurring(view.getVisualBlurring());
+        profile.setItching(view.getItching());
+        profile.setIrritability(view.getIrritability());
+        profile.setDelayedHealing(view.getDelayedHealing());
+        profile.setPartialParesis(view.getPartialParesis());
+        profile.setMuscleStiffness(view.getMuscleStiffness());
+        profile.setAlopecia(view.getAlopecia());
+        profile.setObesity(view.getObesity());
 
         return profile;
     }

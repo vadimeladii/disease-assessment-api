@@ -26,4 +26,18 @@ public class ProfileView {
     private int restingEcgSt;
     private int stSlopeFlat;
     private int stSlopeUp;
+    private int polyuria;
+    private int polydipsia;
+    private int suddenWeightLoss;
+    private int weakness;
+    private int polyphagia;
+    private int genitalThrush;
+    private int visualBlurring;
+    private int itching;
+    private int irritability;
+    private int delayedHealing;
+    private int partialParesis;
+    private int muscleStiffness;
+    private int alopecia;
+    private int obesity;
 }

@@ -31,7 +31,7 @@ public class UserController {
     @PutMapping("/{email}/profile")
     public ResponseEntity<Void> createProfile(@PathVariable("email") String email, @RequestBody ProfileView profileView) {
         userService.updateProfile(email, profileView);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @GetMapping("/{email}/disseases")

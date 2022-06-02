@@ -2,10 +2,7 @@ package md.utm.ati.client;
 
 import feign.Headers;
 import feign.RequestLine;
-import md.utm.ati.client.view.HeartFullRequestView;
-import md.utm.ati.client.view.HeartFullResponseView;
-import md.utm.ati.client.view.HeartPartialRequestView;
-import md.utm.ati.client.view.HeartPartialResponseView;
+import md.utm.ati.client.view.*;
 
 public interface PredictorClient {
 
@@ -17,4 +14,7 @@ public interface PredictorClient {
     @RequestLine("POST /heartpartial")
     HeartPartialResponseView heartpartial(HeartPartialRequestView payload);
 
+    @Headers("Content-Type: application/json")
+    @RequestLine("POST /diabetes")
+    DiabeteResponseView diabetes(DiabeteRequestView payload);
 }

@@ -20,5 +20,19 @@ create table profile
     resting_ECG_Normal int not null default 0,
     resting_ECG_ST int not null default 0,
     ST_Slope_Flat int not null default 0,
-    ST_Slope_Up int not null default 0
+    ST_Slope_Up int not null default 0,
+    polyuria int not null default 0,
+    polydipsia int not null default 0,
+    sudden_weight_loss int not null default 0,
+    weakness int not null default 0,
+    polyphagia int not null default 0,
+    genital_thrush int not null default 0,
+    visual_blurring int not null default 0,
+    itching int not null default 0,
+    irritability int not null default 0,
+    delayed_healing int not null default 0,
+    partial_paresis int not null default 0,
+    muscle_stiffness int not null default 0,
+    alopecia int not null default 0,
+    obesity int not null default 0
 );
