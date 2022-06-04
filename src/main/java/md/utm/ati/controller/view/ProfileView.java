@@ -40,4 +40,19 @@ public class ProfileView {
     private int muscleStiffness;
     private int alopecia;
     private int obesity;
+    private float weight;
+    private float height;
+    private float neck;
+    private float chest;
+    private float abdomen;
+    private float hip;
+    private float thigh;
+    private float knee;
+    private float ankle;
+    private float biceps;
+    private float forearm;
+    private float wrist;
+    private float humidity;
+    private float temperature;
+    private int stepCount;
 }

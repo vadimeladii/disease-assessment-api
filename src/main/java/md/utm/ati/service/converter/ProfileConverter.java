@@ -44,6 +44,21 @@ public class ProfileConverter extends Converter<Profile, ProfileView> {
                 .muscleStiffness(profile.getMuscleStiffness())
                 .alopecia(profile.getAlopecia())
                 .obesity(profile.getObesity())
+                .weight(profile.getWeight())
+                .height(profile.getHeight())
+                .neck(profile.getNeck())
+                .chest(profile.getChest())
+                .abdomen(profile.getAbdomen())
+                .hip(profile.getHip())
+                .thigh(profile.getThigh())
+                .knee(profile.getKnee())
+                .ankle(profile.getAnkle())
+                .biceps(profile.getBiceps())
+                .forearm(profile.getForearm())
+                .wrist(profile.getWrist())
+                .humidity(profile.getHumidity())
+                .temperature(profile.getTemperature())
+                .stepCount(profile.getStepCount())
                 .build();
     }
 
@@ -83,6 +98,21 @@ public class ProfileConverter extends Converter<Profile, ProfileView> {
         profile.setMuscleStiffness(view.getMuscleStiffness());
         profile.setAlopecia(view.getAlopecia());
         profile.setObesity(view.getObesity());
+        profile.setWeight(view.getWeight());
+        profile.setHeight(view.getHeight());
+        profile.setNeck(view.getNeck());
+        profile.setChest(view.getChest());
+        profile.setAbdomen(view.getAbdomen());
+        profile.setHip(view.getHip());
+        profile.setThigh(view.getThigh());
+        profile.setKnee(view.getKnee());
+        profile.setAnkle(view.getAnkle());
+        profile.setBiceps(view.getBiceps());
+        profile.setForearm(view.getForearm());
+        profile.setWrist(view.getWrist());
+        profile.setHumidity(view.getHumidity());
+        profile.setTemperature(view.getTemperature());
+        profile.setStepCount(view.getStepCount());
 
         return profile;
     }

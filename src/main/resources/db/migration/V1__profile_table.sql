@@ -34,5 +34,20 @@ create table profile
     partial_paresis int not null default 0,
     muscle_stiffness int not null default 0,
     alopecia int not null default 0,
-    obesity int not null default 0
+    obesity int not null default 0,
+    weight float not null default 0,
+    height float not null default 0,
+    neck float not null default 0,
+    chest float not null default 0,
+    abdomen float not null default 0,
+    hip float not null default 0,
+    thigh float not null default 0,
+    knee float not null default 0,
+    ankle float not null default 0,
+    biceps float not null default 0,
+    forearm float not null default 0,
+    wrist float not null default 0,
+    humidity float not null default 0,
+    temperature float not null default 0,
+    step_count int not null default 0
 );

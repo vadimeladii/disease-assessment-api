@@ -1,9 +1,7 @@
 package md.utm.ati.service;
 
 import md.utm.ati.client.PredictorClient;
-import md.utm.ati.client.view.DiabeteRequestView;
-import md.utm.ati.client.view.HeartFullRequestView;
-import md.utm.ati.client.view.HeartPartialRequestView;
+import md.utm.ati.client.view.*;
 import md.utm.ati.controller.view.EmailView;
 import md.utm.ati.controller.view.ProfileView;
 import md.utm.ati.exception.BadRequestException;
@@ -53,7 +51,10 @@ public record UserService(ProfileRepository profileRepository, ProfileConverter 
                 .map(profile -> List.of(
                         predictorClient.heartfull(buildHearFullRequestView(profile)),
                         predictorClient.heartpartial(buildHearPartialRequestView(profile)),
-                        predictorClient.diabetes(buildDiabeteRequestView(profile))))
+                        predictorClient.diabetes(buildDiabeteRequestView(profile)),
+                        predictorClient.bodyFat(buildBodyFatRequestView(profile)),
+                        predictorClient.bodyFatPartial(buildBodyFatPartialRequestView(profile)),
+                        predictorClient.stress(buildStressRequestView(profile))))
                 .orElse(List.of());
     }
 
@@ -89,6 +90,58 @@ public record UserService(ProfileRepository profileRepository, ProfileConverter 
         profile.setMuscleStiffness(profileView.getMuscleStiffness());
         profile.setAlopecia(profileView.getAlopecia());
         profile.setObesity(profileView.getObesity());
+        profile.setWeight(profileView.getWeight());
+        profile.setHeight(profileView.getHeight());
+        profile.setNeck(profileView.getNeck());
+        profile.setChest(profileView.getChest());
+        profile.setAbdomen(profileView.getAbdomen());
+        profile.setHip(profileView.getHip());
+        profile.setThigh(profileView.getThigh());
+        profile.setKnee(profileView.getKnee());
+        profile.setAnkle(profileView.getAnkle());
+        profile.setBiceps(profileView.getBiceps());
+        profile.setForearm(profileView.getForearm());
+        profile.setWrist(profileView.getWrist());
+        profile.setHumidity(profileView.getHumidity());
+        profile.setTemperature(profileView.getTemperature());
+        profile.setStepCount(profileView.getStepCount());
+    }
+
+    private StressRequestView buildStressRequestView(Profile profile) {
+        StressRequestView stressRequestView = new StressRequestView();
+        stressRequestView.setHumidity(profile.getHumidity());
+        stressRequestView.setTemperature(profile.getTemperature());
+        stressRequestView.setStepCount(profile.getStepCount());
+
+        return stressRequestView;
+    }
+
+    private BodyFatPartialRequestView buildBodyFatPartialRequestView(Profile profile) {
+        BodyFatPartialRequestView bodyFatPartialRequestView = new BodyFatPartialRequestView();
+        bodyFatPartialRequestView.setHeight(profile.getHeight());
+        bodyFatPartialRequestView.setAbdomen(profile.getAbdomen());
+        bodyFatPartialRequestView.setWrist(profile.getWrist());
+
+        return bodyFatPartialRequestView;
+    }
+
+    private BodyFatRequestView buildBodyFatRequestView(Profile profile) {
+        BodyFatRequestView bodyFatRequestView = new BodyFatRequestView();
+        bodyFatRequestView.setAge(profile.getAge());
+        bodyFatRequestView.setWeight(profile.getWeight());
+        bodyFatRequestView.setHeight(profile.getHeight());
+        bodyFatRequestView.setNeck(profile.getNeck());
+        bodyFatRequestView.setChest(profile.getChest());
+        bodyFatRequestView.setAbdomen(profile.getAbdomen());
+        bodyFatRequestView.setHip(profile.getHip());
+        bodyFatRequestView.setThigh(profile.getThigh());
+        bodyFatRequestView.setKnee(profile.getKnee());
+        bodyFatRequestView.setAnkle(profile.getAnkle());
+        bodyFatRequestView.setBiceps(profile.getBiceps());
+        bodyFatRequestView.setForearm(profile.getForearm());
+        bodyFatRequestView.setWrist(profile.getWrist());
+
+        return bodyFatRequestView;
 
     }
 

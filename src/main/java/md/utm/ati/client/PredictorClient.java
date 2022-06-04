@@ -17,4 +17,16 @@ public interface PredictorClient {
     @Headers("Content-Type: application/json")
     @RequestLine("POST /diabetes")
     DiabeteResponseView diabetes(DiabeteRequestView payload);
+
+    @Headers("Content-Type: application/json")
+    @RequestLine("POST /bodyfat")
+    BodyFatResponseView bodyFat(BodyFatRequestView payload);
+
+    @Headers("Content-Type: application/json")
+    @RequestLine("POST /bodyfatpartial")
+    BodyFatPartialResponseView bodyFatPartial(BodyFatPartialRequestView payload);
+
+    @Headers("Content-Type: application/json")
+    @RequestLine("POST /stress")
+    StressResponseView stress(StressRequestView payload);
 }
